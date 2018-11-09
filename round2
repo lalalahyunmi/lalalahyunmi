@@ -1,0 +1,15 @@
+import { Data, animate, Override, Animatable } from "framer"
+
+const data1 = Data({ left: Animatable(0) })
+
+export const RLeft: Override = () => {
+    return {
+        left: data1.left,
+        onTap() {
+            //data.scale.set(0.6)
+            animate.spring(data1.left, 20)
+        },
+    }
+}
+
+
