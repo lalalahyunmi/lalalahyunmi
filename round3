@@ -1,0 +1,13 @@
+import { Data, animate, Override, Animatable } from "framer"
+
+const data2 = Data({scale:  Animatable(1) })
+
+export const Scale2: Override = () => {
+    return {
+        scale: data2.scale,
+        onTap() {
+            //data.scale.set(0.6)
+            animate.spring(data2.scale, 1.5)
+        },
+    }
+}
