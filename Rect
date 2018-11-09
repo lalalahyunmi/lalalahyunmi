@@ -1,0 +1,39 @@
+import { Data, animate, Override, Animatable } from "framer"
+import { SpringAnimator } from "framer/types/src/animation/Animators/SpringAnimator";
+
+const data = Data({ 
+    
+    left: Animatable(40), 
+    right: Animatable(40), 
+    top: Animatable(169),
+    bottom: Animatable(438), 
+    resiableFlag: false, 
+})
+
+export const RectOverride: Override = () => {
+    return {
+        left: data.left,
+        right: data.right,
+        top: data.top,
+        bottom: data.bottom,
+
+        onTap() {
+            data.resiableFlag = !data.resiableFlag
+            //print(data.resiableFlag)
+
+            if (data.resiableFlag){
+                animate.spring(data.left, 20)
+                animate.spring(data.right, 20)
+                animate.spring(data.top, 112)
+                animate.spring(data.bottom, 0)
+            }
+            else{
+                animate.spring(data.left, 40)
+                animate.spring(data.right, 40)
+                animate.spring(data.top, 169)
+                animate.spring(data.bottom, 438)
+            }
+
+        },
+    }
+}
